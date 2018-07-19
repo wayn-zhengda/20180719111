@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+<aop:aspectj-autoproxy proxy-target-class="true"/>
+ <!--开启注解-->
+ <mvc:annotation-driven/>
+ <!--静态资源映射-->
+ <mvc:default-servlet-handler/>
+<context:component-scan base-package="cn.mayn.com.**" annotation-config="true" use-default-filters="false">
+ <!--???没见下面这两行的时候 controller层不会跳转-->
+ <context:include-filter type="annotation"
+                         expression="org.springframework.stereotype.Controller" />
+ <context:include-filter type="annotation"
+                         expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+</context:component-scan>
+
+ </beans>
