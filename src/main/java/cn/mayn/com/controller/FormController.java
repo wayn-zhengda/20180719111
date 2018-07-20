@@ -9,15 +9,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class FormController {
 
 
-    @RequestMapping("get")
-    public String getForm(){
-        return "index.html";
+    @RequestMapping("index")
+    public String getIndex(){
+        return "index";
     }
 
-    @RequestMapping("hello")
+    @RequestMapping("getData")
     @ResponseBody
-    public String saveHello(){
+    public String getData(){
         String hh = "hello world";
         return hh;
+    }
+
+    @RequestMapping("jstl")
+    public String TestJstl(){
+        return "fristDemo";
     }
 }
