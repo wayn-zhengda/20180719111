@@ -1,4 +1,9 @@
 package cn.mayn.com.service;
 
-public class UserService {
+import cn.mayn.com.model.UserEntity;
+
+import java.util.List;
+
+public interface UserService {
+    List<UserEntity> findData();
 }
