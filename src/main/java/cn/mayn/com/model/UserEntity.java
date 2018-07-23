@@ -1,11 +1,14 @@
 package cn.mayn.com.model;
 
+import java.util.Date;
+
 public class UserEntity {
     private Integer id;
     private String userName;
     private String password;
     private String age;
     private String sex;
+    private Date createTime;
 
     public String getPassword() {
         return password;
@@ -45,5 +48,13 @@ public class UserEntity {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

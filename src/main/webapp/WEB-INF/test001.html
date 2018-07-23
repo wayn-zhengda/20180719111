@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function myFunction()
+        {
+            var x = document.getElementById("demo")
+            if(x.innerHTML.match("Paragraph")){
+                document.getElementById("demo").innerHTML="My First JavaScript Function";
+            }else{
+                document.getElementById("demo").innerHTML="A Paragraph.";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<h1>My Web Page</h1>
+
+<p id="demo">A Paragraph.</p>
+
+<button type="button" onclick="myFunction()">点击这里</button>
+
+</body>
+</html>
