@@ -12,6 +12,7 @@ function choose(dom) {
     alert(tags);
     if (tags > 2) {
         alert("最多选择2个");
+        dom.prop('checked',false);
         return;
     }
 }

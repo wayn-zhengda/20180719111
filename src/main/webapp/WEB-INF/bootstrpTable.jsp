@@ -19,6 +19,7 @@
                 async: true,
                 dataType: 'json',
             });
+            alert("1111111");
         }())
     </script>
 </head>
@@ -43,7 +44,7 @@
         <tbody>
         <c:forEach items="${users}" var="user">
             <tr>
-                <th>${user.id}</th>
+                <th>${user.uid}</th>
                 <th>${user.userName}</th>
                 <th>${user.age}</th>
                 <th>${user.sex}</th>
@@ -51,8 +52,5 @@
         </c:forEach>
         </tbody>
     </table>
-    <c:forEach items="${users}" var="user">
-
-    </c:forEach>
 </body>
 </html>
