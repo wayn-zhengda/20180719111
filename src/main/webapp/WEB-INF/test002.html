@@ -7,6 +7,11 @@
 <body>
 <script src="../js/jquery-1.8.0.min.js"></script>
 <script src="../js/index.js"></script>
+<script type="text/javascript">
+    function test01() {
+        window.location.href = 'file:///D:/Git/zheng/src/main/webapp/WEB-INF/testTime.html';
+    }
+</script>
 <h1>My Web Page</h1>
 
 <p id="demo">A Paragraph.</p>
@@ -20,6 +25,6 @@
 <input type="checkbox" id="tagId-7" class="tags" value="${tag.id}" onclick="choose(this)">7<br>
 <input type="checkbox" id="tagId-8" class="tags" value="8" onclick="test()">8<br>
 </div>
-<button onclick="test()">test1111</button>
+<button onclick="test01()">test1111</button>
 </body>
 </html>

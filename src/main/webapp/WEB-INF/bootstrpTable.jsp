@@ -42,7 +42,7 @@
 <div class="zixun fix">
     <table class="tab2" width="100%">
         <tbody>
-        <c:forEach items="${users}" var="user">
+        <c:forEach items = "${users}" var="user">
             <tr>
                 <th>${user.uid}</th>
                 <th>${user.userName}</th>

@@ -23,12 +23,14 @@ public class UserController {
 
     @RequestMapping("index")
     public String getIndex(Model model){
+        List list = new ArrayList();
         Map<String,String> users = new HashMap<>();
         users.put("uid","001");
         users.put("userName","001");
         users.put("age","001");
         users.put("sex","001");
-        model.addAttribute("users",users);
+        list.add(users);
+        model.addAttribute("users",list);
     return "bootstrpTable";
     }
 
@@ -39,7 +41,7 @@ public class UserController {
 
     @RequestMapping("findData")
     @ResponseBody
-    public void findData(HttpRequest httpRequest , Model model){
+    public void findData(Model model){
 //        List<UserEntity> users = new ArrayList<UserEntity>();
 //        users = userService.findData();
         Map<String,String> users = new HashMap<>();
