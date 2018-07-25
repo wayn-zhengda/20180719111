@@ -2,6 +2,7 @@
 <html>
 <head>
     <script>
+        var x = 1;
         function myFunction()
         {
             var x = document.getElementById("demo")
@@ -11,16 +12,33 @@
                 document.getElementById("demo").innerHTML="A Paragraph.";
             }
         }
+        function test() {
+            window.confirm("111111111111")
+        }
+        function testprompt() {
+            window.prompt("queren","......" )
+        }
+        function testtime() {
+
+            document.getElementById('testx').innerHTML = x;
+            x++;
+            t = setTimeout('testtime()',500);
+        }
     </script>
 </head>
 
-<body>
+<body onload="testtime()">
 
 <h1>My Web Page</h1>
 
 <p id="demo">A Paragraph.</p>
 
 <button type="button" onclick="myFunction()">点击这里</button>
+<button type="button" onclick="test()">点击这里</button>
+<button type="button" onclick="testprompt()">点击这里</button>
+<div id="testx" >
+
+</div>
 
 </body>
 </html>
