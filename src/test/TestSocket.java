@@ -18,5 +18,6 @@ public class TestSocket {
         System.out.println(inetAddress.getAddress()+ "\n"+inetAddress.getCanonicalHostName()+"\n"+inetAddress.getHostAddress()+"\n"+ inetAddress.getHostName());
         byte[] bytes = inetAddress.getAddress();
         System.out.println(Arrays.toString(bytes));
+
     }
 }
