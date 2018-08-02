@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testSort</title>
+
+</head>
+<body>
+<div id="drag-wrap">
+ <div id="wrap1" class="item">
+     <a id="img1" href="javaScript:void (0)">0001</a>
+ </div>
+ <div id="wrap2" class="item">
+     <a id="img2" href="javaScript:void(0)">0002</a>
+ </div>
+    <div id="wrap3" class="item">
+        <a id="img3" href="javaScript:void (0)">0003</a>
+    </div>
+    <div id="wrap4" class="item">
+        <a id="img4" href="javaScript:void (0)">0004</a>
+    </div>
+    <div id="wrap5" class="item">
+        <a id="img5" href="javaScript:void (0)">0005</a>
+    </div>
+</div>
+<script type="text/javascript">
+    var dragCon = document.getElementById("drag-wrap");
+    dragCon.addEventListener('dragstart',startDrag,false);
+    dragCon.addEventListener('dragover',function (e) {
+        e.preventDefault();
+    },false);
+    dragCon.addEventListener('drop',exchangeElement,false);
+    function startDrag(e) {
+        e.dataTransfer.setData('Text',e.target.id + ';'+ e.target.parentElement.id);
+    }
+
+    function exchangeElement(e) {
+        e.preventDefault();
+            const el = e.target;
+        let PE, //要插入位置的父元素
+            CE; //需要交换的元素
+        //toLowerCase 将得到的字符串变成小写
+        if (el.tagName.toLowerCase() !== 'div') {
+            PE = el.parentElement;
+            alert(PE);
+            CE = el;
+        } else {
+            PE = el;
+            CE = el.querySelector('a');
+            alert(CE);
+        }
+
+        /**
+         * 判断不在控制范围内
+         */
+        if (!PE.classList.contains('item')) {
+            return;
+        }
+        const data = e.dataTransfer.getData('Text').split(';');
+        //交换元素
+        document.getElementById(data[1]).appendChild(CE);
+        PE.appendChild(document.getElementById(data[0]));
+    }
+</script>
+</body>
+</html>
