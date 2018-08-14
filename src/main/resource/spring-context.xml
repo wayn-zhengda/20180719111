@@ -22,4 +22,5 @@
 
 <import resource="classpath:springMVC.xml"/>
 <import resource="classpath:datasource_mybatis.xml"/>
+<import resource="classpath*:spring-context-netty.xml"/>
 </beans>
