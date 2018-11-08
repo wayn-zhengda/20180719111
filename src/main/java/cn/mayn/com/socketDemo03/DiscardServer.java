@@ -7,6 +7,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class DiscardServer {
 
@@ -48,5 +49,8 @@ public class DiscardServer {
 
     public static void main(String[] args){
         new DiscardServer(25171).run();
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext();
+        ServerHandler serverHandler = (ServerHandler)annotationConfigApplicationContext.getBean("serverHandler");
+        System.out.println(serverHandler);
     }
 }

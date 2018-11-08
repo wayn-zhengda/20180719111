@@ -1,14 +1,13 @@
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 import java.net.InetAddress;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -249,4 +248,54 @@ public class JavaDemo {
         System.out.println(s.toUpperCase());
         System.out.println(stringBuffer.toString());
     }
+
+    @Test
+    public void longTest(){
+        int i = 1;
+        Long l = 1L;
+        System.out.println(i+l);
+    }
+
+//    @Test
+//    public void transIPInteger(){
+//        String[] ips = StringUtils.split(ip, ".");
+//        String first = ips[0];
+//        String second = ips[1];
+//        String three = ips[2];
+//        String four = ips[3];
+//
+//    }
+
+    @Test
+    public void dateFormat(){
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String likeTime = dateFormat.format(date);
+        System.out.println(likeTime);
+    }
+
+    @Test
+    public void testContains(){
+        String[] ids = {"11","12","13","14"};
+        String ids2 = "11,12,13,14";
+        StringUtils.split(ids2,",");
+        List<Integer> idList = new ArrayList();
+        for (String s : ids){
+            idList.add(Integer.valueOf(s));
+        }
+        Integer id = 11;
+        if (idList.contains(id)){
+            System.out.println("*******" + id);
+        } else {
+            System.out.println("false");
+        }
+    }
+
+    @Test
+    public void testStringUtilsIndexOf(){
+        String otherIds = "2000009917,2000009906,2000009896,2000009901,2000009920,2000009904,2000009923,2000009908";
+        System.out.println(StringUtils.indexOf(otherIds,"2000009918"));
+    }
+
 }
+

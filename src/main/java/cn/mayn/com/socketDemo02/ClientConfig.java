@@ -2,31 +2,20 @@ package cn.mayn.com.socketDemo02;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 
+@Service("clientConfig")
 public class ClientConfig {
-    private int bossThreadCount;
-
-    private int workerThreadCount;
-
-
+    @Value("25171")
     private int portNumber;
 
-    public int getBossThreadCount() {
-        return bossThreadCount;
-    }
-
-    public void setBossThreadCount(int bossThreadCount) {
-        this.bossThreadCount = bossThreadCount;
-    }
-
-    public int getWorkerThreadCount() {
-        return workerThreadCount;
-    }
-
-    public void setWorkerThreadCount(int workerThreadCount) {
-        this.workerThreadCount = workerThreadCount;
-    }
+    @Resource(name = "messageInitilzer")
+    protected ChannelInitializer<? extends Channel> channelInitializer;
 
     public int getPortNumber() {
         return portNumber;
@@ -44,8 +33,11 @@ public class ClientConfig {
         this.channelInitializer = channelInitializer;
     }
 
-
-    protected ChannelInitializer<? extends Channel> channelInitializer;
+    public static void main(String[] args){
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext("spring-context.xml");
+        ClientConfig clientConfig = (ClientConfig)annotationConfigApplicationContext.getBean("clientConfig");
+        System.out.println(clientConfig.getPortNumber());
+    }
 
 
 }
